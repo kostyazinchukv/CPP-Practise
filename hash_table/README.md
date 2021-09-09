@@ -1,0 +1,29 @@
+# Task
+- Implemet a very specific hash table
+- Use only one **cpp** file with no headers
+- Keys are lower-case English words
+- Length of a key is at most 10 character
+- Hash function - take last character of a key
+- Hash table contains exactly 26 slots(a-z)
+- Slots have three different state: "never used", "occupied", "tombstone"
+- Table start with never used
+- Searching works as follows:
+    - Given a key, take its last character as the hash value
+    - First try the corresponidng table slot
+    - If the key is there, you've found it, if it's "never user" - it doesn't exist
+    - Keep trying until you find it or untill you certain that it doesn't exist.
+- Insertion works as follow:
+    - First perform search to see if keys exists - if it does, do nothing.
+    - Take the last character of key as hash value
+    - If that slot is not "occupied", pyt the key there
+    - if it's "occupied" try the next slot until you find a free slot
+- Deletion works as follows:
+    - Given a key, search for it to locate it's slot(if it doesn't exist do nothing)
+    - if found, change state to "tombstone"
+- Command line input is "modification moves" separated by spaces:
+    - **AKey** - add key to table(Aapple means insert apple)
+    - **DKey** - delete key from table(Dapple means delete apple)
+- Once input is processed, output all slots.
+- Ignore invalid inputs
+- Compile with:
+> g++ -o main.out -std=c++11 -O2 -Wall {you-name-it}.cpp
